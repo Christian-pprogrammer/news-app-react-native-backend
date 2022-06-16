@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const app = express();
 const newsRouter = require('./routers/news');
@@ -5,6 +6,7 @@ const newsRouter = require('./routers/news');
 // added later to find out incoming and outgoing requests. 
 const morgan = require('morgan')
 app.use(morgan('dev'))
+app.use(cors({origin: '*'}))
 
 app.use(express.static('public'));
 app.use(express.static('data/uploads'));
